@@ -6,7 +6,9 @@ import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.options.AriaRole;
-
+//Recording open Playwright Inspector-> run on CDM -> mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="https://academy.naveenautomationlabs.com/"
+//Debugging open Playwright Inspector->1) right click o code ->Run As -> Run Configurations -> Environment -> Add -> Name: PWDEBUG & Value:1   -> Apply -> Run 
+//                                  OR 2) page.pause()     in between code type
 //Recording a test using running codegen and Debugging
 public class Example {
 	public static void main(String[] args) {
