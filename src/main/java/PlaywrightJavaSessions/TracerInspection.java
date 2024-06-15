@@ -1,6 +1,8 @@
 package PlaywrightJavaSessions;
 import java.nio.file.Paths;
 
+//opening locally : mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="show-trace trace.zip"
+//opening on Browser : trace.zip -> upload file trace.zip
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.AriaRole;
 
