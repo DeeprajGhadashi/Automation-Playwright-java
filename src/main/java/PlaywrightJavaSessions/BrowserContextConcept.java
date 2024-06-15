@@ -30,7 +30,14 @@ public class BrowserContextConcept {
 		 p3.navigate("https://www.google.com/");
 		 System.out.println(p3.title());
 		
-		
+		 p1.close();
+		 brcx1.close();
+		 
+		 p2.close();
+		 brcx2.close();
+		 
+		 p3.close();
+		 brcx3.close();
 		
 
 	}
