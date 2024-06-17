@@ -18,12 +18,18 @@ public class LocatorConcept1 {
 		Page page = browserContext.newPage();
 		page.navigate("https://academy.naveenautomationlabs.com/");
 		
-	    // Single element
-     	Locator loginBtn = page.locator("text = Login");
+	    // Single element locator
+     	/*Locator loginBtn = page.locator("text = Login");
      	loginBtn.hover();
      	loginBtn.click();
-     	
-     	
+     	*/
+		
+     	// multiple locator as same text then 
+     	Locator loginBtn = page.locator("text = Login");
+     	int totalLogins = loginBtn.count();
+     	System.out.println(totalLogins);
+     	loginBtn.first().click();
+     	//loginBtn.last().click()
      	
 	}
 
