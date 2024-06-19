@@ -18,13 +18,17 @@ public class ShadowDomElement {
 		BrowserContext browserContext = browser.newContext();
 		Page page = browserContext.newPage();
 		
-		//Page -- DOM --> Shadow DOM --> elements
+		// Page -- DOM --> Shadow DOM --> elements
 		page.navigate("https://books-pwakit.appspot.com/");
 		page.locator("book-app[apptitle='BOOKS'] #input").fill("Testing Books");
 		String text = page.locator("book-app[apptitle='BOOKS'] .books-desc").textContent();
 		System.out.println(text);
 		
-
+		//2)Pge -- DOM --> iframe --> Shadow DOM --> elements
+		page.navigate("https://selectorshub.com/xpath-practice-page/");
+		page.frameLocator("#pact1").locator("div.elementor-widget-container #glaf").fill("India");
+		
+		
 	}
 
 }
