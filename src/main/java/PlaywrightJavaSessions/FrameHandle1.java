@@ -18,6 +18,7 @@ public class FrameHandle1 {
 		Page page = browserContext.newPage();
 		page.navigate("https://www.formsite.com/templates/registration-from-templates/vehicle-registration-form/");
 		
+		//iframe using locator
 		page.locator("img[title='Vehicle-Registration-Forms-and-Examples']").click();
 		
 		page.frameLocator("//iframe[contains(@id,'frame-one')]").locator("#RESULT_TextField-8").fill("Deepraj");

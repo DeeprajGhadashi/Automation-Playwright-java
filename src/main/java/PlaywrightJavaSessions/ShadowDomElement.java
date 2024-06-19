@@ -6,27 +6,25 @@ import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 
-public class FrameHandle {
+public class ShadowDomElement {
 
 	public static void main(String[] args) {
 		Playwright playwright = Playwright.create();
 		Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
 		
+		//1)Page -- DOM --> Shadow DOM --> elements
+		//2)Pge -- DOM --> iframe --> Shadow DOM --> elements
 
 		BrowserContext browserContext = browser.newContext();
 		Page page = browserContext.newPage();
-		page.navigate("https://londonfreelance.org/courses/frames/index.html");
 		
-		//frame using name
-		//approach1 used Xpath
-		String header = page.frameLocator("//frame[@name='main']").locator("h2").textContent();
-		System.out.println(header);
+		//Page -- DOM --> Shadow DOM --> elements
+		page.navigate("https://books-pwakit.appspot.com/");
+		page.locator("book-app[apptitle='BOOKS'] #input").fill("Testing Books");
+		String text = page.locator("book-app[apptitle='BOOKS'] .books-desc").textContent();
+		System.out.println(text);
 		
-		//approach2
-		String h2 = page.frame("main").locator("h2").textContent();
-		System.out.println(h2);
-			
-		
+
 	}
 
 }
