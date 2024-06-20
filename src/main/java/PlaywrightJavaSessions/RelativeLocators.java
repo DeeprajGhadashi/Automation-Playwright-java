@@ -23,11 +23,17 @@ public class RelativeLocators {
 		selectUser("Garry.white");
 		selectUser("Jordan.Mathews");
 		
-		String userRole = page.locator("td:right-of(:text('Joe.Root'))").first().textContent();
-		System.out.println(userRole);
+		System.out.println(getUserRole("Joe.Root"));
+		
+		//String userRole = page.locator("td:right-of(:text('Joe.Root'))").first().textContent();
+		//System.out.println(userRole);
 	}
 	
 	public static void selectUser(String userName) {
 		page.locator("input[type='checkbox']:left-of(:text('" + userName + "'))").first().click();
+	}
+	
+	public static String getUserRole(String userName) {
+		return page.locator("td:right-of(:text('" + userName + "'))").first().textContent();
 	}
 }
