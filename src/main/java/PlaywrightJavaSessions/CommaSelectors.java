@@ -25,20 +25,26 @@ public class CommaSelectors {
 //				   + "a:has-text('Login')").click();
 //		
 		
-		Locator imp_ele = page.locator("a:has-text('Courses'),"
-				                     + "a:has-text('Demo Site'),"
-				                     + "a:has-text('WebDriver APIs'),"
-				                     + "a:has-text('Webinars'),"
-				                     + "a:has-text('Login'),");
-				
-		System.out.println(imp_ele.count());
+		//using Xpath Union
+		Locator login = page.locator("//a[text()='Signin'] | //a[text()='Login']");
+		System.out.println(login.textContent());
+		login.click();
 		
-		if(imp_ele.count() == 5) {
-			System.out.println("PASS");
-		}
-		else {
-			System.out.println("FAIL");
-		}
+		
+//		Locator imp_ele = page.locator("a:has-text('Courses'),"
+//				                     + "a:has-text('Demo Site'),"
+//				                     + "a:has-text('WebDriver APIs'),"
+//				                     + "a:has-text('Webinars'),"
+//				                     + "a:has-text('Login'),");
+//				
+//		System.out.println(imp_ele.count());
+//		
+//		if(imp_ele.count() == 5) {
+//			System.out.println("PASS");
+//		}
+//		else {
+//			System.out.println("FAIL");
+//		}
 
 	}
 
