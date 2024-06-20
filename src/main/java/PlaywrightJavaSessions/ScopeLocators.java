@@ -20,10 +20,16 @@ public class ScopeLocators {
         page.navigate("https://datatables.net/extensions/select/examples/checkbox/order.html");
 
         // Locate the row containing "Ashton Cox" and click the checkbox
-        Locator row = page.locator("table#example tr").filter(new Locator.FilterOptions().setHasText("Ashton Cox"));
-        row.locator(".dt-select-checkbox").click();
+       // Locator row = page.locator("table#example tr").filter(new Locator.FilterOptions().setHasText("Ashton Cox"));
+        //row.locator(".dt-select-checkbox").click();
         
+      Locator row = page.locator("table#example tr");
+      row.locator(":scope", new Locator.LocatorOptions()
+    		  .setHasText("Ashton Cox"))
+                .locator(".dt-select-checkbox")
+                   .click();
       
+        row.locator(":scope").allInnerTexts().forEach(e -> System.out.println(e));
 
 	}
 
