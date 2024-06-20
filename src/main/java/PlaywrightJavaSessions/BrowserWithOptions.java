@@ -19,7 +19,7 @@ public class BrowserWithOptions {
        Browser browser = playwright.chromium().launch(lp);
         
 		Page page = browser.newPage();
-		page.navigate("https://www.amazon.com");
+		page.navigate("https://www.amazon.in");
 		
 		String title = page.title();
 		System.out.println("page title is : " + title);
