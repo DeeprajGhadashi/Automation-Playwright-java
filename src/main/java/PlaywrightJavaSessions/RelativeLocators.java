@@ -1,8 +1,11 @@
 package PlaywrightJavaSessions;
 
+import java.util.List;
+
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 
@@ -27,6 +30,19 @@ public class RelativeLocators {
 		
 		//String userRole = page.locator("td:right-of(:text('Joe.Root'))").first().textContent();
 		//System.out.println(userRole);
+		
+		String aboveUser = page.locator("a:above(:text('Joe.Root'))").first().textContent();
+		System.out.println(aboveUser);
+		
+		String belowUser = page.locator("a:below(:text('Joe.Root'))").first().textContent();
+		System.out.println(belowUser);
+		
+		Locator nearElements = page.locator("td:near(:text('Joe.Root'),400)");
+		List <String> nearEleText = nearElements.allInnerTexts();
+		for(String e : nearEleText) {
+			System.out.println(e);
+		}
+		
 	}
 	
 	public static void selectUser(String userName) {
